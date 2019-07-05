@@ -22,10 +22,16 @@ void problem_sizes(benchmark::internal::Benchmark* bench) {
 
 template <typename Contaier>
 void range_construction(benchmark::State& state) {
-  std::vector<value_type> v = bencmarking_tools::generate_random_vector<int>(state.range(0));
+  std::vector<value_type> v = bencmarking_tools::generate_random_vector_unique_elements<int>(state.range(0));
+  auto every10thPerecntile = bencmarking_tools::every_10th_percentile_N(v.begin(), v.size());
 
-  for(auto _ : state)
-    benchmark::DoNotOptimize(Contaier(v.begin(), v.end()));
+  Contaier c(v.begin(), v.end());
+
+  for(auto _ : state) {
+    for (auto e : every10thPerecntile) {
+       benchmark::DoNotOptimize(c.count(*e));
+    }
+  }
 }
 
 }  // namespace
@@ -34,4 +40,4 @@ using Srt = srt::flat_set<value_type>;
 using AbslHash = absl::flat_hash_set<value_type>;
 using Boost = boost::container::flat_set<value_type>;
 
-BENCHMARK_TEMPLATE(range_construction, Boost)->Apply(problem_sizes);
+BENCHMARK_TEMPLATE(range_construction, Srt)->Apply(problem_sizes);

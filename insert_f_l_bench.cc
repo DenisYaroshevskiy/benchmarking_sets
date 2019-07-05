@@ -4,9 +4,9 @@
 #include <set>
 #include <iostream>
 
-#include <boost/container/flat_set.hpp>
-//#include <folly/sorted_vector_types.h>
 #include "srt.h"
+#include <boost/container/flat_set.hpp>
+#include "absl/container/flat_hash_set.h"
 
 #include "benchmark/benchmark.h"
 
@@ -103,7 +103,12 @@ void insert_first_last_bench(benchmark::State& state) {
 }
 BENCHMARK(Srt)->Apply(set_input_sizes);*/
 
-void Boost(benchmark::State& state) {
+/*void Boost(benchmark::State& state) {
   insert_first_last_bench<boost::container::flat_set<int>>(state);
 }
-BENCHMARK(Boost)->Apply(set_input_sizes);
+BENCHMARK(Boost)->Apply(set_input_sizes);*/
+
+void AbslHash(benchmark::State& state) {
+  insert_first_last_bench<absl::flat_hash_set<int>>(state);
+}
+BENCHMARK(AbslHash)->Apply(set_input_sizes);
