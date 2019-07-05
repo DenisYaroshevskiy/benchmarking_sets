@@ -20,7 +20,8 @@ add_compile_options(-Wall -Wextra -Werror -Wpedantic -g)
 
 add_executable(benchmarks)
 target_sources(benchmarks PRIVATE
-               lookup_speed_in_cache.cc
+               lookup_speed_out_of_cache.cc
+               #lookup_speed_in_cache.cc
                #insert_f_l_bench.cc
                #range_construction.cc
                google_benchmark_main.cc)
