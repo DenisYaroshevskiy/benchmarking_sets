@@ -1,6 +1,7 @@
 import argparse
 import json
 import plotly
+import re
 
 
 def generateMapOfStyles():
@@ -120,12 +121,13 @@ class runner:
 
     def loadJson(self, jsonFile):
         loaded = json.load(open(jsonFile))
-        name = loaded['benchmarks'][0]['name'].split('/')[0]
+        name = re.search(r'<(\w+)>', loaded['benchmarks'][0]['name']).group(1)
 
         xs = []
         times = []
         for measurement in loaded['benchmarks']:
-            x = int(measurement['name'].split('/')[2])
+            parts = measurement['name'].split('/')
+            x = int(parts[len(parts) - 1])
             if x < self.smallestX or x > self.biggestX:
                 continue
             xs.append(x)

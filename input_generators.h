@@ -6,9 +6,62 @@
 #include <numeric>
 #include <random>
 #include <set>
+#include <string>
+#include <utility>
 #include <vector>
 
-namespace bencmarking_tools {
+namespace benchmarking_sets {
+
+struct fake_url {
+  std::string data;
+
+  fake_url() = default;
+
+  explicit fake_url(int seed) : data("https://" + std::to_string(seed) + ".com") {}
+
+  template <typename H>
+  friend H AbslHashValue(H h, const fake_url& x) {
+    return H::combine(std::move(h), x.data);
+  }
+
+  friend bool operator==(const fake_url& x, const fake_url& y) {
+    return x.data == y.data;
+  }
+
+  friend bool operator<(const fake_url& x, const fake_url& y) {
+    return x.data < y.data;
+  }
+
+  friend bool operator!=(const fake_url& x, const fake_url& y) {
+    return !(x == y);
+  }
+
+  friend bool operator>(const fake_url& x, const fake_url& y) { return y < x; }
+
+  friend bool operator<=(const fake_url& x, const fake_url& y) {
+    return !(y < x);
+  }
+
+  friend bool operator>=(const fake_url& x, const fake_url& y) {
+    return !(x < y);
+  }
+};
+
+}  //  namespace benchmarking_sets
+
+namespace std {
+
+template <>
+class hash<benchmarking_sets::fake_url> {
+ public:
+  size_t operator()(const benchmarking_sets::fake_url& x) const {
+    return std::hash<std::string>()(x.data);
+  }
+};
+
+}  // namespace std
+
+namespace benchmarking_sets {
 
 template <typename Key, typename Value, typename Factory>
 auto memoized_input(Factory f) {
@@ -27,12 +80,27 @@ inline auto& random_engine() {
   return g;
 }
 
+template <typename>
+struct to_type_generator;
+
+template <>
+struct to_type_generator<int> {
+  int operator()(int seed) const { return seed; }
+};
+
+template <>
+struct to_type_generator<fake_url> {
+  fake_url operator()(int seed) const { return fake_url{seed}; }
+};
+
 template <typename T>
 std::vector<T> generate_random_vector(int size) {
   static auto op = memoized_input<int, std::vector<T>>([](int size) {
-    std::uniform_int_distribution<T> dis(1, size * 100);
+    std::uniform_int_distribution<> dis(1, size * 100);
+    to_type_generator<T> to_type;
     std::vector<T> v(static_cast<size_t>(size));
-    std::generate(v.begin(), v.end(), [&] { return dis(random_engine()); });
+    std::generate(v.begin(), v.end(),
+                  [&] { return to_type(dis(random_engine())); });
 
     return v;
   });
@@ -102,6 +170,6 @@ class trash_cache {
   }
 };
 
-}  // namespace bencmarking_tools
+}  // namespace benchmarking_sets
 
 #endif  // INPUT_GENERATORS
