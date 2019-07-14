@@ -33,8 +33,15 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<div id="myPieChart" class="benchmarkBarChart"></div>
-				<script> visualizeBenchmarks("myPieChart", "range_construction_boost:range_construction_boost"); </script>
+				<section>
+						<div id="rangeConstructInt" class="benchmarkBarChart"></div>
+						<script> visualizeBenchmarks("rangeConstructInt", true, "range_construction_boost"); </script>
+				</section>
+				<section>
+						<div id="rangeConstructInt2" class="benchmarkBarChart"></div>
+						<script> visualizeBenchmarks("rangeConstructInt2", true, "range_construction_boost:range_construction_boost"); </script>
+				</section>
+
 			</section>
 			<section>Slide 3</section>
 		</div>

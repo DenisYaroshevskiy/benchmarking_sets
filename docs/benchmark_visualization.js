@@ -60,6 +60,11 @@ function loadBenchmark(benchmark) {
     return Promise.all([main, baseline]).then((ps) => subtractBaseline(ps[0], ps[1]));
 }
 
+function divideByX(bench) {
+    bench.times = bench.times.map((time, i) => time / bench.xs[i])
+    return bench;
+}
+
 function transformBenchmarksToDataTable(benchmarks) {
     const titles = [''].concat(benchmarks.map((b) => b.name));
     const rows = benchmarks[0].xs.map(
@@ -68,28 +73,31 @@ function transformBenchmarksToDataTable(benchmarks) {
         }
     );
 
-    const asArray = [titles].concat(rows);
-    return google.visualization.arrayToDataTable(asArray);
+    return google.visualization.arrayToDataTable([titles].concat(rows));;
 }
 
 function drawBenchmarksChart(id, data) {
-    let options = {
-        curveType: 'function',
+      var options = {
+        title: '',
         legend: { position: 'bottom' }
-    };
-    console.log(data);
-    let chart = google.visualization.LineChart(document.getElementById(id));
-    chart.draw(data, options);
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById(id));
+
+      chart.draw(data, options);
 }
 
-function visualizeBenchmarks(id, ...benchmarks) {
+function visualizeBenchmarks(id, shouldDivideByX, ...benchmarks) {
     google.charts.load('current', { packages: ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
-    const loadedBenchmarks = Promise.all(benchmarks.map(loadBenchmark));
+    let loaded = benchmarks.map(loadBenchmark);
+    if (shouldDivideByX) {
+        loaded = loaded.map((b) => b.then(divideByX));
+    }
 
     function drawChart() {
-        loadedBenchmarks.then(
+        Promise.all(loaded).then(
             (benchmarks) => {
                 const data = transformBenchmarksToDataTable(benchmarks);
                 console.log(data);
