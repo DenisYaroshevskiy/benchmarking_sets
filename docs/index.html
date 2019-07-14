@@ -2,67 +2,91 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>benchmarking sets</title>
+    <title>benchmarking sets</title>
 
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/benchmark_charts.css">
-	<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/benchmark_charts.css">
+    <link rel="stylesheet" href="css/theme/black.css">
 
-	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/monokai.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
 
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript", src="./benchmark_visualization.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" , src="./benchmark_visualization.js"></script>
 </head>
 
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
-				<section>
-						<div id="rangeConstructInt" class="benchmarkBarChart"></div>
-						<script> visualizeBenchmarks("rangeConstructInt", true, "range_construction_boost"); </script>
-				</section>
-				<section>
-						<div id="rangeConstructInt2" class="benchmarkBarChart"></div>
-						<script> visualizeBenchmarks("rangeConstructInt2", true, "range_construction_boost:range_construction_boost"); </script>
-				</section>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Range construction for integers.
 
-			</section>
-			<section>Slide 3</section>
-		</div>
-	</div>
+                        * Left to right - size increases.
+                        * Time measured per one element
+                        * Point:
+                           for integers, sorting is considerably faster then hashing until ~2000 integers.
+                    </script>
+                </section>
+                <section>
+                    <div id="range_construction_int" class="benchmarkChart"></div>
+                    <script>
+                        visualizeBenchmarks("range_construction_int", true,
+                            "range_construction_int_absl",
+                            "range_construction_int_boost",
+                            "range_construction_int_srt",
+                            "range_construction_int_std",
+                            "range_construction_int_std_unordered"
+                        );
+                    </script>
+                </section>
+                <section>
+                    <div id="range_construction_int_no_std" class="benchmarkChart"></div>
+                    <script>
+                        visualizeBenchmarks("range_construction_int_no_std", true,
+                            "range_construction_int_absl",
+                            "range_construction_int_boost",
+                            "range_construction_int_srt"
+                        );
+                    </script>
+                </section>
 
-	<script src="js/reveal.js"></script>
 
-	<script>
-		// More info about config & dependencies:
-		// - https://github.com/hakimel/reveal.js#configuration
-		// - https://github.com/hakimel/reveal.js#dependencies
-		Reveal.initialize({
-			dependencies: [
-				{ src: 'plugin/markdown/marked.js' },
-				{ src: 'plugin/markdown/markdown.js' },
-				{ src: 'plugin/notes/notes.js', async: true },
-				{ src: 'plugin/highlight/highlight.js', async: true }
-			],
-            center: false
-		});
-	</script>
+            </section>
+            <section>Slide 3</section>
+        </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            dependencies: [
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true }
+            ]
+        });
+    </script>
 </body>
 
 </html>

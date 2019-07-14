@@ -51,7 +51,6 @@ function subtractBaseline(main, baseline) {
 
 function loadBenchmark(benchmark) {
     const split = benchmark.split(':');
-    console.log(split);
     const main = loadGoogleBenchmarkResults(split[0]);
     if (split.length === 1) {
         return main;
@@ -78,7 +77,7 @@ function transformBenchmarksToDataTable(benchmarks) {
 
 function drawBenchmarksChart(id, data) {
       var options = {
-        title: '',
+        title: id,
         legend: { position: 'bottom' }
       };
 
@@ -100,7 +99,6 @@ function visualizeBenchmarks(id, shouldDivideByX, ...benchmarks) {
         Promise.all(loaded).then(
             (benchmarks) => {
                 const data = transformBenchmarksToDataTable(benchmarks);
-                console.log(data);
                 drawBenchmarksChart(id, data);
             }
         );
