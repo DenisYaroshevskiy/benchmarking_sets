@@ -32,6 +32,25 @@
 <body>
     <div class="reveal">
         <div class="slides">
+            <section id="introduction">
+                <section data-markdown>
+                    <script type="text/template">
+                        ## What is this
+                        Benchmarks to compare flat_set & flat_hash_set (abseil implementation).
+                        flat_set is from Boost and Srt - prototype that does insert(first, last) efficiently.
+                        std::set/std::unordered_set included as a baseline.
+                    </script>
+                </section>
+            </section>
+            <section id="test_types">
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Test types
+                        Using random integers and 'fake_url' - a string in a struct that looks like: "https://NUMBER.com"
+                    </script>
+                </section>
+            </section>
+            </section>
             <section id="range_construction_int">
                 <section data-markdown>
                     <script type="text/template">
@@ -63,8 +82,15 @@
             <section id="insert_first_last_int">
                 <section data-markdown>
                     <script type="text/template">
-                        ## Insert first last 2000.
+                        ## Insert first last, 2000 integers.
+                        https://github.com/DenisYaroshevskiy/benchmarking_sets/blob/master/insert_f_l_bench.cc
+
+                        * 2000 integers split into 2 groups: in the set already/new elements
+                        * Left to right - number of new elements increases
+                        * Set up time is subtructed.
                         * Point:
+                            bulk insertion for a flat_set can be fast (on pary and sometimes better than hashing)
+                            but it requires a) extra allocation b) writing past the end of the elements.
                     </script>
                 </section>
                 <script> addBencharkChartsWithBaseline("insert_first_last_int", false) </script>
@@ -73,8 +99,12 @@
                 <section data-markdown>
                     <script type="text/template">
                         ## Lookup speed in cache, ints.
+                        https://github.com/DenisYaroshevskiy/benchmarking_sets/blob/master/lookup_speed_in_cache.cc
+
+                        * Left to right - size increases.
+                        * Looking up 10 elements
                         * Point:
-                            good hashing is faster for lookup.
+                            good hashing is faster for lookup even for small sizes.
                     </script>
                 </section>
                 <script> addBencharkCharts("lookup_speed_in_cache_int", false) </script>
@@ -83,7 +113,12 @@
                 <section data-markdown>
                     <script type="text/template">
                         ## Lookup speed in cache, fake_urls.
+                        https://github.com/DenisYaroshevskiy/benchmarking_sets/blob/master/lookup_speed_in_cache.cc
+
+                        * Left to right - size increases.
+                        * Looking up 10 elements
                         * Point:
+                           reiterating that more complex types should probably not be used with sorting.
                     </script>
                 </section>
                 <script> addBencharkCharts("lookup_speed_in_cache_fake_url", false) </script>
@@ -92,7 +127,14 @@
                 <section data-markdown>
                     <script type="text/template">
                         ## Lookup speed out of cache, ints.
+                        https://github.com/DenisYaroshevskiy/benchmarking_sets/blob/master/lookup_speed_out_of_cache.cc
+
+                        * Set is copied multiple (3000) times and then lookup is done in different copies
+                          on different benchmark iterations.
+                        * Left to right - size increases.
+                        * Looking up 10 elements
                         * Point:
+                          Cache effects are worse for binary search over caching.
                     </script>
                 </section>
                 <script> addBencharkChartsOnlyNoStd("lookup_speed_out_of_cache_int", false) </script>
@@ -101,7 +143,13 @@
                 <section data-markdown>
                     <script type="text/template">
                         ## Copy ints
+
+                        * Left to right - size increases.
+                        * Copying a container
                         * Point:
+                          hashing containers are more complex and sometimes have to do more.
+                          For example abseil rehashes on copy (intentionaly).
+                          Copying node based containers is awful.
                     </script>
                 </section>
                 <script> addBencharkCharts("copy_int", true) </script>
@@ -110,7 +158,11 @@
                 <section data-markdown>
                     <script type="text/template">
                         ## Copy fake urls
+
+                        * Left to right - size increases.
+                        * Copying a container
                         * Point:
+                          for completness
                     </script>
                 </section>
                 <script> addBencharkCharts("copy_fake_url", true) </script>
@@ -118,8 +170,14 @@
             <section id="erase_bulk_int">
                 <section data-markdown>
                     <script type="text/template">
-                        ## Erase bulk
+                        ## Erase bulk, int
+
+                        * Left to right - size increases.
+                        * Erase all elements for which (& 3) is true
+                        * Set up time is subtructed.
+
                         * Point:
+                          hashing will never be as fast for iteration.
                     </script>
                 </section>
                 <script> addBencharkChartsWithBaseline("erase_bulk_int", true) </script>
