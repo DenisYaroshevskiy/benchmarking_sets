@@ -78,9 +78,9 @@ function transformBenchmarksToDataTable(benchmarks) {
 function drawBenchmarksChart(id, element, data) {
       var options = {
         title: id,
-        legend: { position: 'bottom' },
+        legend: { position: 'right' },
         height: 600,
-        width: 800
+        width: 800,
       };
 
       let chart = new google.visualization.LineChart(element);

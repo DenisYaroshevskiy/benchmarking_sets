@@ -1,0 +1,122 @@
+{
+  "context": {
+    "date": "2019-07-15 01:36:28",
+    "executable": "./benchmarks",
+    "num_cpus": 4,
+    "mhz_per_cpu": 1800,
+    "cpu_scaling_enabled": false,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 262144000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 3145728000,
+        "num_sharing": 4
+      }
+    ],
+    "library_build_type": "release"
+  },
+  "benchmarks": [
+    {
+      "name": "lookup_speed<AbslHash>/49",
+      "iterations": 16938284,
+      "real_time": 4.1693261665541186e+01,
+      "cpu_time": 4.1612774942255072e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/113",
+      "iterations": 16612833,
+      "real_time": 4.2237965733366060e+01,
+      "cpu_time": 4.2151750998761024e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/241",
+      "iterations": 16621590,
+      "real_time": 4.2221821558932845e+01,
+      "cpu_time": 4.2138868784514628e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/497",
+      "iterations": 16515432,
+      "real_time": 4.2110404378872978e+01,
+      "cpu_time": 4.2028449513158328e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/1009",
+      "iterations": 16603573,
+      "real_time": 4.2183757435437784e+01,
+      "cpu_time": 4.2101660889496429e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/2033",
+      "iterations": 16977682,
+      "real_time": 4.1129073038615807e+01,
+      "cpu_time": 4.1060316714613940e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/4081",
+      "iterations": 16908580,
+      "real_time": 4.1416141272838317e+01,
+      "cpu_time": 4.1347114896697512e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/8177",
+      "iterations": 16194220,
+      "real_time": 4.3359578109471407e+01,
+      "cpu_time": 4.3281491791515762e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/16369",
+      "iterations": 16628303,
+      "real_time": 4.2128974977154506e+01,
+      "cpu_time": 4.2054983000971220e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/32753",
+      "iterations": 13136905,
+      "real_time": 4.1510541332621386e+01,
+      "cpu_time": 4.1416680717413982e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/65521",
+      "iterations": 16216655,
+      "real_time": 4.3275114318905459e+01,
+      "cpu_time": 4.3189671359475852e+01,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed<AbslHash>/131057",
+      "iterations": 16763175,
+      "real_time": 4.1773840157725154e+01,
+      "cpu_time": 4.1700572833010519e+01,
+      "time_unit": "ns"
+    }
+  ]
+}

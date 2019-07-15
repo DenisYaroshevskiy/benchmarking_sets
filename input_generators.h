@@ -111,11 +111,12 @@ std::vector<T> generate_random_vector(int size) {
 template <typename T>
 std::vector<T> generate_random_vector_unique_elements(int size) {
   static auto op = memoized_input<int, std::vector<T>>([](int size) {
-    std::uniform_int_distribution<T> dis(1, size * 100);
+    std::uniform_int_distribution<> dis(1, size * 100);
+    to_type_generator<T> to_type;
     std::set<T> limit;
     std::vector<T> v;
     while (static_cast<int>(limit.size()) < size) {
-      T elem = dis(random_engine());
+      T elem = to_type(dis(random_engine()));
       if (limit.insert(elem).second) {
         v.push_back(elem);
       }

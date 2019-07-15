@@ -47,8 +47,8 @@
                 <script> addBencharkCharts("range_construction_int", true) </script>
             </section>
             <section id="range_construction_fake_url">
-                    <section data-markdown>
-                        <script type="text/template">
+                <section data-markdown>
+                    <script type="text/template">
                             ## Range construction for fake urls.
                             https://github.com/DenisYaroshevskiy/benchmarking_sets/blob/master/range_construction.cc
 
@@ -57,8 +57,27 @@
                             * Point:
                                for more complex types hashing might always be more efficient.
                         </script>
+                </section>
+                <script> addBencharkCharts("range_construction_fake_url", true) </script>
+            </section>
+            <section id="lookup_speed_in_cache_int">
+                <section data-markdown>
+                    <script type="text/template">
+                                ## Lookup speed in cache, ints.
+                                * Point:
+                                   good hashing is faster for lookup.
+                            </script>
+                </section>
+                <script> addBencharkCharts("lookup_speed_in_cache_int", false) </script>
+            </section>
+            <section id="lookup_speed_in_cache_fake_url">
+                    <section data-markdown>
+                        <script type="text/template">
+                                    ## Lookup speed in cache, fake_urls.
+                                    * Point:
+                                </script>
                     </section>
-                    <script> addBencharkCharts("range_construction_fake_url", true) </script>
+                    <script> addBencharkCharts("lookup_speed_in_cache_fake_url", false) </script>
                 </section>
         </div>
     </div>
