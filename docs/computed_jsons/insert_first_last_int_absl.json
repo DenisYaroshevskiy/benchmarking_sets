@@ -1,0 +1,395 @@
+{
+  "context": {
+    "date": "2019-07-15 03:37:33",
+    "executable": "./benchmarks",
+    "num_cpus": 4,
+    "mhz_per_cpu": 1800,
+    "cpu_scaling_enabled": false,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 262144000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 3145728000,
+        "num_sharing": 4
+      }
+    ],
+    "library_build_type": "release"
+  },
+  "benchmarks": [
+    {
+      "name": "insert_first_last_bench<AbslHash>/2000/0",
+      "iterations": 26650,
+      "real_time": 2.6029175008502112e+04,
+      "cpu_time": 2.5980750469043152e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1960/40",
+      "iterations": 26816,
+      "real_time": 2.5908500970380373e+04,
+      "cpu_time": 2.5860978520286393e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1920/80",
+      "iterations": 27854,
+      "real_time": 2.7456037695695832e+04,
+      "cpu_time": 2.7407553672722046e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1880/120",
+      "iterations": 27258,
+      "real_time": 2.7316576601090484e+04,
+      "cpu_time": 2.7273424315797176e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1840/160",
+      "iterations": 27117,
+      "real_time": 2.5415780063971059e+04,
+      "cpu_time": 2.5360401224324229e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1800/200",
+      "iterations": 27123,
+      "real_time": 2.5913714264794791e+04,
+      "cpu_time": 2.5773070825498642e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1760/240",
+      "iterations": 17089,
+      "real_time": 4.0352030370733897e+04,
+      "cpu_time": 4.0265492422025862e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1720/280",
+      "iterations": 17465,
+      "real_time": 4.1113201259962538e+04,
+      "cpu_time": 4.1027998854852536e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1680/320",
+      "iterations": 17186,
+      "real_time": 4.0492649424245523e+04,
+      "cpu_time": 4.0410741301058923e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1640/360",
+      "iterations": 17204,
+      "real_time": 4.0837821959623128e+04,
+      "cpu_time": 4.0740409207161152e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1600/400",
+      "iterations": 17266,
+      "real_time": 4.0504814085048318e+04,
+      "cpu_time": 4.0420537472489385e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1560/440",
+      "iterations": 17197,
+      "real_time": 3.9708984473863922e+04,
+      "cpu_time": 3.9637262313194275e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1520/480",
+      "iterations": 17200,
+      "real_time": 4.0996002326421658e+04,
+      "cpu_time": 4.0915813953488359e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1480/520",
+      "iterations": 16837,
+      "real_time": 4.1304770208123686e+04,
+      "cpu_time": 4.1233058145750423e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1440/560",
+      "iterations": 16950,
+      "real_time": 4.1618654748238077e+04,
+      "cpu_time": 4.1551917404129672e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1400/600",
+      "iterations": 17156,
+      "real_time": 4.1638935299876423e+04,
+      "cpu_time": 4.1554849615295083e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1360/640",
+      "iterations": 16712,
+      "real_time": 4.1292778961884302e+04,
+      "cpu_time": 4.1202130205840032e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1320/680",
+      "iterations": 16659,
+      "real_time": 4.2006004922905609e+04,
+      "cpu_time": 4.1915120955639701e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1280/720",
+      "iterations": 16988,
+      "real_time": 4.0399224098901410e+04,
+      "cpu_time": 4.0327937367553561e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1240/760",
+      "iterations": 16759,
+      "real_time": 4.1370321916695473e+04,
+      "cpu_time": 4.1288561370010153e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1200/800",
+      "iterations": 16725,
+      "real_time": 4.2172648370758769e+04,
+      "cpu_time": 4.2098834080717483e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1160/840",
+      "iterations": 16807,
+      "real_time": 4.1476038198072725e+04,
+      "cpu_time": 4.1391087047063731e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1120/880",
+      "iterations": 16834,
+      "real_time": 4.1198700664034848e+04,
+      "cpu_time": 4.1117084471902061e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1080/920",
+      "iterations": 16574,
+      "real_time": 4.1439680160258496e+04,
+      "cpu_time": 4.1360685410884478e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1040/960",
+      "iterations": 16704,
+      "real_time": 4.1935660918944064e+04,
+      "cpu_time": 4.1848599137931189e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/1000/1000",
+      "iterations": 17093,
+      "real_time": 4.1014980752936870e+04,
+      "cpu_time": 4.0932252969051653e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/960/1040",
+      "iterations": 16931,
+      "real_time": 4.1356123087246822e+04,
+      "cpu_time": 4.1265134959541894e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/920/1080",
+      "iterations": 16226,
+      "real_time": 4.0936009921092766e+04,
+      "cpu_time": 4.0847528657709823e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/880/1120",
+      "iterations": 14109,
+      "real_time": 4.9416132609619533e+04,
+      "cpu_time": 4.9293713232688206e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/840/1160",
+      "iterations": 13865,
+      "real_time": 4.8881355427313712e+04,
+      "cpu_time": 4.8754706094482484e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/800/1200",
+      "iterations": 13495,
+      "real_time": 4.9680925008715596e+04,
+      "cpu_time": 4.9580955909595519e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/760/1240",
+      "iterations": 13624,
+      "real_time": 5.0041760496979201e+04,
+      "cpu_time": 4.9907883147387227e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/720/1280",
+      "iterations": 13716,
+      "real_time": 4.9879568460386967e+04,
+      "cpu_time": 4.9769830854476437e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/680/1320",
+      "iterations": 13869,
+      "real_time": 5.0484527363716872e+04,
+      "cpu_time": 5.0333693849593306e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/640/1360",
+      "iterations": 13898,
+      "real_time": 4.9429044467646985e+04,
+      "cpu_time": 4.9333932939991289e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/600/1400",
+      "iterations": 13700,
+      "real_time": 5.0193656496805597e+04,
+      "cpu_time": 4.9978394160584205e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/560/1440",
+      "iterations": 13771,
+      "real_time": 4.9566833854182718e+04,
+      "cpu_time": 4.9453489216468930e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/520/1480",
+      "iterations": 13569,
+      "real_time": 5.0231996756882312e+04,
+      "cpu_time": 5.0100744343724655e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/480/1520",
+      "iterations": 13693,
+      "real_time": 4.9616514204466766e+04,
+      "cpu_time": 4.9504637405973270e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/440/1560",
+      "iterations": 12807,
+      "real_time": 5.3655069023224576e+04,
+      "cpu_time": 5.3548293901772216e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/400/1600",
+      "iterations": 12340,
+      "real_time": 5.4080246352798924e+04,
+      "cpu_time": 5.3972042139384241e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/360/1640",
+      "iterations": 12634,
+      "real_time": 5.3544627038318351e+04,
+      "cpu_time": 5.3425201836315180e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/320/1680",
+      "iterations": 12366,
+      "real_time": 5.4749986010431290e+04,
+      "cpu_time": 5.4642891800096979e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/280/1720",
+      "iterations": 12656,
+      "real_time": 5.3108110302286113e+04,
+      "cpu_time": 5.2967604298357095e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/240/1760",
+      "iterations": 12405,
+      "real_time": 5.3920518983784626e+04,
+      "cpu_time": 5.3806610237807836e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/200/1800",
+      "iterations": 12232,
+      "real_time": 5.5268997629104575e+04,
+      "cpu_time": 5.5148054283845668e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/160/1840",
+      "iterations": 11845,
+      "real_time": 5.7140175179834296e+04,
+      "cpu_time": 5.7006331785563721e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/120/1880",
+      "iterations": 11709,
+      "real_time": 5.6622984542477432e+04,
+      "cpu_time": 5.6496626526603934e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/80/1920",
+      "iterations": 11718,
+      "real_time": 5.7845061870648999e+04,
+      "cpu_time": 5.7735620413039323e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/40/1960",
+      "iterations": 11832,
+      "real_time": 5.7781287187475369e+04,
+      "cpu_time": 5.7618999323867385e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "insert_first_last_bench<AbslHash>/0/2000",
+      "iterations": 11679,
+      "real_time": 5.8734622400971537e+04,
+      "cpu_time": 5.8610154979022256e+04,
+      "time_unit": "ns"
+    }
+  ]
+}

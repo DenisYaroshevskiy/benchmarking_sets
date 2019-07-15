@@ -90,9 +90,15 @@ void insert_first_last_bench(benchmark::State& state) {
 
   for (auto _ : state) {
     Container c(cached);
-    // c.insert(input.second.begin(), input.second.end());
+    c.insert(input.second.begin(), input.second.end());
     benchmark::DoNotOptimize(c);
   }
 }
 
-BENCHMARK(insert_first_last_bench, Std);
+namespace benchmarking_sets {
+namespace {
+
+BENCHMARK_TEMPLATE(insert_first_last_bench, Boost)->Apply(set_input_sizes);;
+
+}  // namespace
+}  // namespace benchmarking_sets
