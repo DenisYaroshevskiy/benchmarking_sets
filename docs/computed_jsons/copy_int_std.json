@@ -1,0 +1,122 @@
+{
+  "context": {
+    "date": "2019-07-15 02:38:39",
+    "executable": "./benchmarks",
+    "num_cpus": 4,
+    "mhz_per_cpu": 1800,
+    "cpu_scaling_enabled": false,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 262144000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 3145728000,
+        "num_sharing": 4
+      }
+    ],
+    "library_build_type": "release"
+  },
+  "benchmarks": [
+    {
+      "name": "copy_bench<Std>/49",
+      "iterations": 82847,
+      "real_time": 8.3113410868838273e+03,
+      "cpu_time": 8.2965466462273835e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/113",
+      "iterations": 35888,
+      "real_time": 1.9650187946027570e+04,
+      "cpu_time": 1.9606163620151587e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/241",
+      "iterations": 10000,
+      "real_time": 5.1315480101038702e+04,
+      "cpu_time": 5.0900099999999984e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/497",
+      "iterations": 7390,
+      "real_time": 1.0231562922957589e+05,
+      "cpu_time": 1.0070094722598107e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/1009",
+      "iterations": 3563,
+      "real_time": 2.1747169884365055e+05,
+      "cpu_time": 2.1546674150996373e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/2033",
+      "iterations": 1750,
+      "real_time": 3.9933872799987771e+05,
+      "cpu_time": 3.9850571428571409e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/4081",
+      "iterations": 833,
+      "real_time": 8.0930041777454130e+05,
+      "cpu_time": 8.0766266506602627e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/8177",
+      "iterations": 395,
+      "real_time": 1.7496248050681257e+06,
+      "cpu_time": 1.7457772151898725e+06,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/16369",
+      "iterations": 185,
+      "real_time": 3.8182921567617133e+06,
+      "cpu_time": 3.8104162162162145e+06,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/32753",
+      "iterations": 75,
+      "real_time": 9.2607777732579652e+06,
+      "cpu_time": 9.2382533333333563e+06,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/65521",
+      "iterations": 35,
+      "real_time": 2.0272372085933704e+07,
+      "cpu_time": 2.0219514285714269e+07,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<Std>/131057",
+      "iterations": 16,
+      "real_time": 4.3143340437381998e+07,
+      "cpu_time": 4.3017000000000082e+07,
+      "time_unit": "ns"
+    }
+  ]
+}

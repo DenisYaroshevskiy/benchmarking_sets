@@ -1,0 +1,122 @@
+{
+  "context": {
+    "date": "2019-07-15 02:40:22",
+    "executable": "./benchmarks",
+    "num_cpus": 4,
+    "mhz_per_cpu": 1800,
+    "cpu_scaling_enabled": false,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 262144000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 3145728000,
+        "num_sharing": 4
+      }
+    ],
+    "library_build_type": "release"
+  },
+  "benchmarks": [
+    {
+      "name": "copy_bench<AbslHash>/49",
+      "iterations": 942697,
+      "real_time": 7.1732381771401833e+02,
+      "cpu_time": 7.1593099373393568e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/113",
+      "iterations": 423616,
+      "real_time": 1.5004939780697105e+03,
+      "cpu_time": 1.4977172722465627e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/241",
+      "iterations": 225035,
+      "real_time": 3.0179525095539689e+03,
+      "cpu_time": 3.0100384384651284e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/497",
+      "iterations": 102141,
+      "real_time": 6.6103934953137032e+03,
+      "cpu_time": 6.5925436406536073e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/1009",
+      "iterations": 52995,
+      "real_time": 1.2501183790737765e+04,
+      "cpu_time": 1.2473365411831308e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/2033",
+      "iterations": 25277,
+      "real_time": 2.7018445108210624e+04,
+      "cpu_time": 2.6961229576294641e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/4081",
+      "iterations": 13324,
+      "real_time": 5.1055551111200199e+04,
+      "cpu_time": 5.0951741218853233e+04,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/8177",
+      "iterations": 6051,
+      "real_time": 1.1472875524636704e+05,
+      "cpu_time": 1.1449743843992727e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/16369",
+      "iterations": 3121,
+      "real_time": 2.2282311310502261e+05,
+      "cpu_time": 2.2232233258570975e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/32753",
+      "iterations": 1667,
+      "real_time": 4.2024320815874229e+05,
+      "cpu_time": 4.1930533893221407e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/65521",
+      "iterations": 779,
+      "real_time": 8.8379789475263096e+05,
+      "cpu_time": 8.8188960205391527e+05,
+      "time_unit": "ns"
+    },
+    {
+      "name": "copy_bench<AbslHash>/131057",
+      "iterations": 418,
+      "real_time": 1.6846862153298308e+06,
+      "cpu_time": 1.6803253588516726e+06,
+      "time_unit": "ns"
+    }
+  ]
+}
