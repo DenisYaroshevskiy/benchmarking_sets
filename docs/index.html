@@ -32,10 +32,11 @@
 <body>
     <div class="reveal">
         <div class="slides">
-            <section>
+            <section id="range_construction_int">
                 <section data-markdown>
                     <script type="text/template">
                         ## Range construction for integers.
+                        https://github.com/DenisYaroshevskiy/benchmarking_sets/blob/master/range_construction.cc
 
                         * Left to right - size increases.
                         * Time measured per one element
@@ -43,32 +44,22 @@
                            for integers, sorting is considerably faster then hashing until ~2000 integers.
                     </script>
                 </section>
-                <section>
-                    <div id="range_construction_int" class="benchmarkChart"></div>
-                    <script>
-                        visualizeBenchmarks("range_construction_int", true,
-                            "range_construction_int_absl",
-                            "range_construction_int_boost",
-                            "range_construction_int_srt",
-                            "range_construction_int_std",
-                            "range_construction_int_std_unordered"
-                        );
-                    </script>
-                </section>
-                <section>
-                    <div id="range_construction_int_no_std" class="benchmarkChart"></div>
-                    <script>
-                        visualizeBenchmarks("range_construction_int_no_std", true,
-                            "range_construction_int_absl",
-                            "range_construction_int_boost",
-                            "range_construction_int_srt"
-                        );
-                    </script>
-                </section>
-
-
+                <script> addBencharkCharts("range_construction_int", true) </script>
             </section>
-            <section>Slide 3</section>
+            <section id="range_construction_fake_url">
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Range construction for fake urls.
+                            https://github.com/DenisYaroshevskiy/benchmarking_sets/blob/master/range_construction.cc
+
+                            * Left to right - size increases.
+                            * Time measured per one element
+                            * Point:
+                               for more complex types hashing might always be more efficient.
+                        </script>
+                    </section>
+                    <script> addBencharkCharts("range_construction_fake_url", true) </script>
+                </section>
         </div>
     </div>
 

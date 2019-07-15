@@ -11,7 +11,7 @@ void range_construction(benchmark::State& state) {
     benchmark::DoNotOptimize(Contaier(v.begin(), v.end()));
 }
 
-BENCHMARK_TEMPLATE(range_construction, Boost)->Apply(container_sizes);
+BENCHMARK_TEMPLATE(range_construction, Std)->Apply(container_sizes);
 
 }  // namespace
 }  // namespace benchmarking_sets

@@ -75,18 +75,17 @@ function transformBenchmarksToDataTable(benchmarks) {
     return google.visualization.arrayToDataTable([titles].concat(rows));;
 }
 
-function drawBenchmarksChart(id, data) {
+function drawBenchmarksChart(id, element, data) {
       var options = {
         title: id,
         legend: { position: 'bottom' }
       };
 
-      var chart = new google.visualization.LineChart(document.getElementById(id));
-
+      let chart = new google.visualization.LineChart(element);
       chart.draw(data, options);
 }
 
-function visualizeBenchmarks(id, shouldDivideByX, ...benchmarks) {
+function visualizeBenchmarks(id, element, shouldDivideByX, benchmarks) {
     google.charts.load('current', { packages: ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
@@ -99,8 +98,37 @@ function visualizeBenchmarks(id, shouldDivideByX, ...benchmarks) {
         Promise.all(loaded).then(
             (benchmarks) => {
                 const data = transformBenchmarksToDataTable(benchmarks);
-                drawBenchmarksChart(id, data);
+                drawBenchmarksChart(id, element, data);
             }
         );
     }
+}
+
+function visualizeAllSetsBenchmarks(id, element, shouldDivideByX) {
+    const names = ['absl', 'boost', 'srt', 'std', 'std_unordered'].map(
+        (container) => id + '_' + container
+    );
+    visualizeBenchmarks(id, element, shouldDivideByX, names);
+}
+
+function visualizeBenchmarksNoStd(id, element, shouldDivideByX) {
+    const names = ['absl', 'boost', 'srt'].map(
+        (container) => id + '_' + container
+    );
+    visualizeBenchmarks(id + '_no_std', element, shouldDivideByX, names);
+}
+
+function addNewChartDropDown(section) {
+    let dropDown = document.createElement("section");
+    let dropDownChart = document.createElement("div");
+    dropDownChart.className = "benchmarkChart";
+    dropDown.appendChild(dropDownChart);
+    section.appendChild(dropDown);
+    return dropDownChart;
+}
+
+function addBencharkCharts(id, shouldDivideByX) {
+    let section = document.getElementById(id);
+    visualizeAllSetsBenchmarks(id, addNewChartDropDown(section), shouldDivideByX);
+    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), shouldDivideByX);
 }
