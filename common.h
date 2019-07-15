@@ -13,7 +13,7 @@
 
 namespace benchmarking_sets {
 
-using value_type = fake_url;
+using value_type = int;
 
 inline void container_sizes(benchmark::internal::Benchmark* bench) {
   for (size_t size = 1 << 6; size < (1 << 18); size <<= 1) {

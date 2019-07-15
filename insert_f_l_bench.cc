@@ -4,11 +4,7 @@
 #include <set>
 #include <iostream>
 
-#include "srt.h"
-#include <boost/container/flat_set.hpp>
-#include "absl/container/flat_hash_set.h"
-
-#include "benchmark/benchmark.h"
+#include <common.h>
 
 namespace {
 
@@ -94,21 +90,9 @@ void insert_first_last_bench(benchmark::State& state) {
 
   for (auto _ : state) {
     Container c(cached);
-    c.insert(input.second.begin(), input.second.end());
+    // c.insert(input.second.begin(), input.second.end());
+    benchmark::DoNotOptimize(c);
   }
 }
 
-/*void Srt(benchmark::State& state) {
-  insert_first_last_bench<srt::flat_set<int>>(state);
-}
-BENCHMARK(Srt)->Apply(set_input_sizes);*/
-
-/*void Boost(benchmark::State& state) {
-  insert_first_last_bench<boost::container::flat_set<int>>(state);
-}
-BENCHMARK(Boost)->Apply(set_input_sizes);*/
-
-void AbslHash(benchmark::State& state) {
-  insert_first_last_bench<absl::flat_hash_set<int>>(state);
-}
-BENCHMARK(AbslHash)->Apply(set_input_sizes);
+BENCHMARK(insert_first_last_bench, Std);
