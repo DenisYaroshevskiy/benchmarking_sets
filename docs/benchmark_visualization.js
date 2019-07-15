@@ -134,3 +134,8 @@ function addBencharkCharts(id, shouldDivideByX) {
     visualizeAllSetsBenchmarks(id, addNewChartDropDown(section), shouldDivideByX);
     visualizeBenchmarksNoStd(id, addNewChartDropDown(section), shouldDivideByX);
 }
+
+function addBencharkChartsOnlyNoStd(id, shouldDivideByX) {
+    let section = document.getElementById(id);
+    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), shouldDivideByX);
+}

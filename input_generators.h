@@ -147,7 +147,7 @@ class trash_cache {
   int i = 0;
   const std::vector<int>* accessPattern = &trash_cache_access_pattern();
 
-  static constexpr size_t sufficient_tashing_size = 1000;
+  static constexpr size_t sufficient_tashing_size = 3000;
 
   const std::vector<int>& trash_cache_access_pattern() {
     static std::vector<int> res = [] {

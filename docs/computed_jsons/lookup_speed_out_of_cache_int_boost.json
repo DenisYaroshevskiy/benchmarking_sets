@@ -1,0 +1,122 @@
+{
+  "context": {
+    "date": "2019-07-15 02:30:38",
+    "executable": "./benchmarks",
+    "num_cpus": 4,
+    "mhz_per_cpu": 1800,
+    "cpu_scaling_enabled": false,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32768000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 262144000,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 3145728000,
+        "num_sharing": 4
+      }
+    ],
+    "library_build_type": "release"
+  },
+  "benchmarks": [
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/49",
+      "iterations": 4506563,
+      "real_time": 1.5267015395308184e+02,
+      "cpu_time": 1.5202760951084008e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/113",
+      "iterations": 3697443,
+      "real_time": 1.8730407554431440e+02,
+      "cpu_time": 1.8678502954609439e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/241",
+      "iterations": 2115251,
+      "real_time": 3.2763677312386943e+02,
+      "cpu_time": 3.2687468295724727e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/497",
+      "iterations": 1127487,
+      "real_time": 5.8729640432136728e+02,
+      "cpu_time": 5.8573713045028444e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/1009",
+      "iterations": 941303,
+      "real_time": 7.1125329779804360e+02,
+      "cpu_time": 7.0949630459055140e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/2033",
+      "iterations": 813235,
+      "real_time": 7.9572946194089604e+02,
+      "cpu_time": 7.9357381322741946e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/4081",
+      "iterations": 722849,
+      "real_time": 9.2756536564280282e+02,
+      "cpu_time": 9.2530251822994796e+02,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/8177",
+      "iterations": 663419,
+      "real_time": 1.1860011576151257e+03,
+      "cpu_time": 1.1829130609765480e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/16369",
+      "iterations": 489230,
+      "real_time": 1.4158128405724383e+03,
+      "cpu_time": 1.4126320953334846e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/32753",
+      "iterations": 419302,
+      "real_time": 1.6742105117452456e+03,
+      "cpu_time": 1.6707528225479482e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/65521",
+      "iterations": 318713,
+      "real_time": 2.0597551151246107e+03,
+      "cpu_time": 2.0321762839921878e+03,
+      "time_unit": "ns"
+    },
+    {
+      "name": "lookup_speed_out_of_cache<Boost>/131057",
+      "iterations": 270821,
+      "real_time": 2.3677547199010323e+03,
+      "cpu_time": 2.3512430719922072e+03,
+      "time_unit": "ns"
+    }
+  ]
+}
