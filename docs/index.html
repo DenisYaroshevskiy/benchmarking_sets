@@ -24,9 +24,8 @@
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" , src="./benchmark_visualization.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="./benchmark_visualization.js"></script>
 </head>
 
 <body>
@@ -63,7 +62,7 @@
                            for integers, sorting is considerably faster then hashing until ~2000 integers.
                     </script>
                 </section>
-                <script> addBencharkCharts("range_construction_int", true) </script>
+                <script> addBencharkCharts("range_construction_int", {shouldDivideByX : true, useLog: true}) </script>
             </section>
             <section id="range_construction_fake_url">
                 <section data-markdown>
@@ -77,7 +76,7 @@
                                for more complex types hashing might always be more efficient.
                         </script>
                 </section>
-                <script> addBencharkCharts("range_construction_fake_url", true) </script>
+                <script> addBencharkCharts("range_construction_fake_url", {shouldDivideByX : true, useLog: true}) </script>
             </section>
             <section id="insert_first_last_int">
                 <section data-markdown>
@@ -93,7 +92,7 @@
                             but it requires a) extra allocation b) writing past the end of the elements.
                     </script>
                 </section>
-                <script> addBencharkChartsWithBaseline("insert_first_last_int", false) </script>
+                <script> addBencharkChartsWithBaseline("insert_first_last_int", {shouldDivideByX : false, useLog: false}) </script>
             </section>
             <section id="lookup_speed_in_cache_int">
                 <section data-markdown>
@@ -107,7 +106,7 @@
                             good hashing is faster for lookup even for small sizes.
                     </script>
                 </section>
-                <script> addBencharkCharts("lookup_speed_in_cache_int", false) </script>
+                <script> addBencharkCharts("lookup_speed_in_cache_int", {shouldDivideByX : false, useLog: true}) </script>
             </section>
             <section id="lookup_speed_in_cache_fake_url">
                 <section data-markdown>
@@ -121,7 +120,7 @@
                            reiterating that more complex types should probably not be used with sorting.
                     </script>
                 </section>
-                <script> addBencharkCharts("lookup_speed_in_cache_fake_url", false) </script>
+                <script> addBencharkCharts("lookup_speed_in_cache_fake_url", {shouldDivideByX : false, useLog: true}) </script>
             </section>
             <section id="lookup_speed_out_of_cache_int">
                 <section data-markdown>
@@ -137,7 +136,7 @@
                           Cache effects are worse for binary search over caching.
                     </script>
                 </section>
-                <script> addBencharkChartsOnlyNoStd("lookup_speed_out_of_cache_int", false) </script>
+                <script> addBencharkChartsOnlyNoStd("lookup_speed_out_of_cache_int", {shouldDivideByX : false, useLog: true}) </script>
             </section>
             <section id="copy_int">
                 <section data-markdown>
@@ -152,7 +151,7 @@
                           Copying node based containers is awful.
                     </script>
                 </section>
-                <script> addBencharkCharts("copy_int", true) </script>
+                <script> addBencharkCharts("copy_int", {shouldDivideByX : true, useLog: true}) </script>
             </section>
             <section id="copy_fake_url">
                 <section data-markdown>
@@ -165,7 +164,7 @@
                           for completness
                     </script>
                 </section>
-                <script> addBencharkCharts("copy_fake_url", true) </script>
+                <script> addBencharkCharts("copy_fake_url", {shouldDivideByX : true, useLog: true}) </script>
             </section>
             <section id="erase_bulk_int">
                 <section data-markdown>
@@ -180,7 +179,7 @@
                           hashing will never be as fast for iteration.
                     </script>
                 </section>
-                <script> addBencharkChartsWithBaseline("erase_bulk_int", true) </script>
+                <script> addBencharkChartsWithBaseline("erase_bulk_int", {shouldDivideByX : true, useLog: true}) </script>
             </section>
         </div>
     </div>

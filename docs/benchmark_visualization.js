@@ -64,35 +64,12 @@ function divideByX(bench) {
     return bench;
 }
 
-function transformBenchmarksToDataTable(benchmarks) {
-    const titles = [''].concat(benchmarks.map((b) => b.name));
-    const rows = benchmarks[0].xs.map(
-        (x, i) => {
-            return [x].concat(benchmarks.map((b) => b.times[i]));
-        }
-    );
-
-    return google.visualization.arrayToDataTable([titles].concat(rows));;
-}
-
-function drawBenchmarksChart(id, element, data) {
-      var options = {
-        title: id,
-        legend: { position: 'right' },
-        height: 600,
-        width: 800,
-      };
-
-      let chart = new google.visualization.LineChart(element);
-      chart.draw(data, options);
-}
-
-function visualizeBenchmarks(id, element, shouldDivideByX, benchmarks) {
+function visualizeBenchmarks(id, element, settings, benchmarks) {
     google.charts.load('current', { packages: ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
     let loaded = benchmarks.map(loadBenchmark);
-    if (shouldDivideByX) {
+    if (settings.shouldDivideByX) {
         loaded = loaded.map((b) => b.then(divideByX));
     }
 
@@ -106,7 +83,43 @@ function visualizeBenchmarks(id, element, shouldDivideByX, benchmarks) {
     }
 }
 
-function visualizeAllSetsBenchmarks(id, element, shouldDivideByX, hasBaseline = false) {
+function visualizeBenchmarksPloty(id, element, settings, benchmarks) {
+    let loaded = benchmarks.map(loadBenchmark);
+    if (settings.shouldDivideByX) {
+        loaded = loaded.map((b) => b.then(divideByX));
+    }
+
+    let traces = Promise.all(loaded).then(
+        (benchmarks) => {
+            return benchmarks.map((b) => {
+                return {
+                    name: b.name,
+                    x: b.xs,
+                    y: b.times,
+                    type: 'scatter'
+                }
+            });
+        }
+    )
+
+    let layout = {
+        title: id,
+        width: 800,
+        height: 600
+    };
+
+    if (settings.useLog) {
+        layout.xaxis = { type : 'log'};
+    }
+
+    traces.then(
+        (traces) => {
+            Plotly.newPlot(element, traces, layout);
+        }
+    )
+}
+
+function visualizeAllSetsBenchmarks(id, element, settings, hasBaseline = false) {
     const names = ['absl', 'boost', 'srt', 'std', 'std_unordered'].map(
         (container) => {
             let res = id + '_' + container;
@@ -114,10 +127,10 @@ function visualizeAllSetsBenchmarks(id, element, shouldDivideByX, hasBaseline = 
             return res;
         }
     );
-    visualizeBenchmarks(id, element, shouldDivideByX, names);
+    visualizeBenchmarksPloty(id, element, settings, names);
 }
 
-function visualizeBenchmarksNoStd(id, element, shouldDivideByX, hasBaseline = false) {
+function visualizeBenchmarksNoStd(id, element, settings, hasBaseline = false) {
     const names = ['absl', 'boost', 'srt'].map(
         (container) => {
             let res = id + '_' + container;
@@ -125,7 +138,7 @@ function visualizeBenchmarksNoStd(id, element, shouldDivideByX, hasBaseline = fa
             return res;
         }
     );
-    visualizeBenchmarks(id + '_no_std', element, shouldDivideByX, names);
+    visualizeBenchmarksPloty(id + '_no_std', element, settings, names);
 }
 
 function addNewChartDropDown(section) {
@@ -137,19 +150,19 @@ function addNewChartDropDown(section) {
     return dropDownChart;
 }
 
-function addBencharkCharts(id, shouldDivideByX) {
+function addBencharkCharts(id, settings) {
     let section = document.getElementById(id);
-    visualizeAllSetsBenchmarks(id, addNewChartDropDown(section), shouldDivideByX);
-    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), shouldDivideByX);
+    visualizeAllSetsBenchmarks(id, addNewChartDropDown(section), settings);
+    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), settings);
 }
 
-function addBencharkChartsOnlyNoStd(id, shouldDivideByX) {
+function addBencharkChartsOnlyNoStd(id, settings) {
     let section = document.getElementById(id);
-    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), shouldDivideByX);
+    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), settings);
 }
 
-function addBencharkChartsWithBaseline(id, shouldDivideByX) {
+function addBencharkChartsWithBaseline(id, settings) {
     let section = document.getElementById(id);
-    visualizeAllSetsBenchmarks(id, addNewChartDropDown(section), shouldDivideByX, true);
-    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), shouldDivideByX, true);
+    visualizeAllSetsBenchmarks(id, addNewChartDropDown(section), settings);
+    visualizeBenchmarksNoStd(id, addNewChartDropDown(section), settings);
 }
